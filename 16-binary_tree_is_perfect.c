@@ -66,24 +66,10 @@ size_t binary_tree_height(const binary_tree_t *tree)
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int left_branch, right_branch;
+	int parent = 0;
 
-	if (!tree)
-		return (0);
+	if (tree && tree->left && tree->right)
+		parent = 1;
 
-	if (!tree->left && !tree->right)
-		return (1);
-
-	if (tree->left || tree->right)
-	{
-		left_branch = binary_tree_is_full(tree->left);
-		right_branch = binary_tree_is_full(tree->right);
-
-		if (left_branch && right_branch)
-			return (0);
-		else
-			return (1);
-	}
-
-	return (0);
+	return (parent);
 }
