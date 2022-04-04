@@ -81,6 +81,8 @@ int binary_tree_is_full(const binary_tree_t *tree)
 
 		if (left_branch && right_branch)
 			return (0);
+		else
+			return (1);
 	}
 
 	return (0);
