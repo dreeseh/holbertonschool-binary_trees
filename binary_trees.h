@@ -63,4 +63,7 @@ bst_t *bst_search(const bst_t *tree, int value);
 bst_t *bst_remove(bst_t *root, int value);
 bst_t *in_order_successor(bst_t *root);
 
+/* spec trimester 2 binary trees */
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
+
 #endif /* _BINARY_TREES_H_ */
