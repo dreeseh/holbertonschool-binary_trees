@@ -9,7 +9,7 @@
  * @leftRight: 1 = adding on the left, 2 = adding on the right
  * Return: is void
  */
-void initialize_tree(avl_t **node, int *array, size_t size, int leftRight)
+void initialize(avl_t **node, int *array, size_t size, int leftRight)
 {
 	size_t middle;
 
@@ -22,14 +22,14 @@ void initialize_tree(avl_t **node, int *array, size_t size, int leftRight)
 	if (leftRight == 1)
 	{
 		(*node)->left = binary_tree_node(*node, array[middle]);
-		initialize_tree(&((*node)->left), array, middle, 1);
-		initialize_tree(&((*node)->left), array + middle + 1, (size - 1 - middle), 2);
+		initialize(&((*node)->left), array, middle, 1);
+		initialize(&((*node)->left), array + middle + 1, (size - 1 - middle), 2);
 	}
 	else
 	{
 		(*node)->right = binary_tree_node(*node, array[middle]);
-		initialize_tree(&((*node)->right), array, middle, 1);
-		initialize_tree(&((*node)->right), array + middle + 1, (size - 1 - middle), 2);
+		initialize(&((*node)->right), array, middle, 1);
+		initialize(&((*node)->right), array + middle + 1, (size - 1 - middle), 2);
 	}
 }
 
@@ -59,8 +59,8 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 	root = binary_tree_node(root, array[middle]);
 
-	initialize_tree(&root, array, middle, left);
-	initialize_tree(&root, array + middle + 1, (size - 1 - middle), right);
+	initialize(&root, array, middle, left);
+	initialize(&root, array + middle + 1, (size - 1 - middle), right);
 
 	return (root);
 }
