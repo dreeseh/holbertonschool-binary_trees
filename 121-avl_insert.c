@@ -71,7 +71,7 @@ avl_t *my_avl_insert(avl_t **tree, int value)
 			(*tree)->right = binary_tree_node(*tree, value);
 			return ((*tree)->right);
 		}
-		
+
 		new_node = my_avl_insert(&((*tree)->right), value);
 		if (new_node)
 			avl_balance(tree, value);
