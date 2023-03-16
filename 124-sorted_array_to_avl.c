@@ -6,7 +6,7 @@
  * @node: pointer to the node
  * @array: pointer to the first element of the array to be converted
  * @size: number of element in the array
- * @leftRight: 1 to adding on the left, 2 to adding on the right
+ * @leftRight: 1 = adding on the left, 2 = adding on the right
  * Return: is void
  */
 void initialize_tree(avl_t **node, int *array, size_t size, int leftRight)
@@ -43,6 +43,10 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *root;
 	size_t middle;
+	int left, right;
+
+	left = 1;
+	right = 2;
 
 	root = NULL;
 
@@ -55,8 +59,8 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 	root = binary_tree_node(root, array[middle]);
 
-	initialize_tree(&root, array, middle, 1);
-	initialize_tree(&root, array + middle + 1, (size - 1 - middle), 2);
+	initialize_tree(&root, array, middle, left);
+	initialize_tree(&root, array + middle + 1, (size - 1 - middle), right);
 
 	return (root);
 }
