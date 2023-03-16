@@ -1,8 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * initialize_tree - creates an AVL tree with recursion
- *
+ * initialize - creates an AVL tree with recursion
  * @node: pointer to the node
  * @array: pointer to the first element of the array to be converted
  * @size: number of element in the array
@@ -47,7 +46,6 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 	left = 1;
 	right = 2;
-
 	root = NULL;
 
 	if (size == 0)
